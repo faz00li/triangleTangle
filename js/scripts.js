@@ -1,10 +1,5 @@
-// collect data
-//determine if sides produce triangle
-  //if they do, detemine what kind of triangle
-    // equalateral a === b && a ===c && b === c
-    // scalene a != b && a != c && b != c
-    // equilateral a === b || a === c || b === c
 
+//scripts.js, Eddie Raskin, 11/8/2019
 
 var sideA = 0;
 var sideB = 0;
@@ -35,5 +30,19 @@ function whichTrinangle(sideA, sideB, sideC) {
     return "Scalene";
 
   else if (sideA === sideB || sideA === sideC || sideB === sideC);
-    return "Isoceles"
+    return "Isoceles";
 };
+
+$(document).ready(function() {
+
+  getSides();
+
+  if (isTriangle())
+  {
+    $("#output").text(whichTrinangle());
+    $("#output").toggle();
+  }
+  else
+    $("#output").text("The dimensions entered do not add up to a triangle");
+
+});
