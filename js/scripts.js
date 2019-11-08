@@ -1,27 +1,43 @@
 
 //scripts.js, Eddie Raskin, 11/8/2019
 
-var sideA = 0;
-var sideB = 0;
-var sideC = 0;
+var sideA = 1;
+var sideB = 2;
+var sideC = 3;
 
-function getSides(sideA, sideB, sideC) {
+function getSides() {
+
+  console.log("original values");
+  console.log(sideA);
+  console.log(sideB);
+  console.log(sideC);
 
   sideA = parseInt($("input#sideA").val());
-  sideA = parseInt($("input#sideB").val());
-  sideA = parseInt($("input#sideC").val());
+  sideB = parseInt($("input#sideB").val());
+  sideC = parseInt($("input#sideC").val());
+
+  console.log("updated values");
+  console.log(sideA);
+  console.log(sideB);
+  console.log(sideC);
 
 };
 
-function isTriangle(sideA, sideB, sideC) {
+function isTriangle() {
 
-  if ( (sideA + sideB > sideC) && (sideA + sideC > sideB) && (sideB + sideC > sideA) )
+  console.log("here");
+
+  if ( (sideA + sideB > sideC) && (sideA + sideC > sideB) && (sideB + sideC > sideA) ) {
+    console.log("is triangle");
     return true;
-  else
+  }
+  else {
+    console.log("is not triangle");
     return false;
+  }
 };
 
-function whichTrinangle(sideA, sideB, sideC) {
+function whichTrinangle() {
 
   if (sideA === sideB && sideA ===sideC && sideB === sideC)
     return "Equilateral";
@@ -35,14 +51,19 @@ function whichTrinangle(sideA, sideB, sideC) {
 
 $(document).ready(function() {
 
-  getSides();
+  $("form#triangle").submit(function(event) {
 
-  if (isTriangle())
-  {
-    $("#output").text(whichTrinangle());
-    $("#output").toggle();
-  }
-  else
-    $("#output").text("The dimensions entered do not add up to a triangle");
+    event.preventDefault();
+
+    getSides();
+
+    if (isTriangle()) {
+      $("#output").text(whichTrinangle());
+      $("#output").removeClass("hidden");
+    }
+    else
+      $("#output").removeClass("hidden").text("The dimensions entered do not add up to a triangle");
+
+  });
 
 });
