@@ -1,0 +1,11 @@
+https://www.markdownguide.org/cheat-sheet/
+
+# TriangleTangle
+
+#### webpage that determines if inputed lengths for the sides of a triangle indeed make a triangle and if so what kind, 11/7/2019
+
+#### By Eddie Raskin
+
+## Known Bugs
+
+_{Are there issues that have not yet been resolved that you want to let users know you know?  Outline any issues that would impact use of your application.  Share any workarounds that are in place. }_
